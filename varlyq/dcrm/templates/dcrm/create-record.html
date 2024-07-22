@@ -1,0 +1,39 @@
+{% extends 'dcrm/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container bg-light shadow-md p-5 form-layout">
+    <h2>Create record</h2>
+    <h5>Start adding in the required details</h5> 
+    <hr>
+    <br>
+
+    <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        {{ form.first_name|as_crispy_field }}
+        <br>
+        {{ form.last_name|as_crispy_field }}
+        <br>
+        {{ form.email|as_crispy_field }}
+        <br>
+        {{ form.phone|as_crispy_field }}
+        <br>
+        {{ form.address|as_crispy_field }}
+        <br>
+        {{ form.city|as_crispy_field }}
+        <br>
+        {{ form.state|as_crispy_field }}
+        <br>
+        {{ form.postcode|as_crispy_field }}
+        <br>
+    </form>
+    <div style="display: flex; justify-content: center;">
+        <button type="submit" class="btn btn-outline-primary">Create record </button>
+        &nbsp;
+        <a href="{% url 'dashboard' %}" class="btn btn-outline-primary">Return &nbsp;<i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+    </div>
+</div>
+
+{% endblock %}

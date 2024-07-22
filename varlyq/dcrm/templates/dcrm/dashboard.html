@@ -1,0 +1,53 @@
+{% extends 'dcrm/base.html' %}
+
+{% block content %}
+
+    <h5>Welcome to the dashboard , {{user}}!</h5>
+
+    <hr>
+
+    <a class="btn btn-outline-primary " href="{%url 'create-record' %}">Create a record &nbsp;<i class="fa fa-plus" aria-hidden="true"></i></a>
+    <hr>
+    <table class="table table-hover table-bordered table-sm">
+
+        <thead class="table-dark">
+
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Postcode</th>
+                <th scope="col">Creation time</th>
+
+                <th scope="col">View</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            {% if records %}
+                {% for record in records%}
+                <tr>
+                    <td>{{record.sequence_id}}</td>
+                    <td>{{record.first_name}} {{record.last_name}}</td>
+                    <td>{{record.email}}</td>
+                    <td>{{record.phone}}</td>
+                    <td>{{record.address}}</td>
+                    <td>{{record.city}}</td>
+                    <td>{{record.state}}</td>
+                    <td>{{record.postcode}}</td>
+                    <td>{{record.creation_date}}</td>
+                    <td><a class="btn btn-outline-success " href="{% url 'record' record.id %}"><i class="fa fa-eye" aria-hidden="true"></i>&nbsp;</a></td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+
+        </tbody>
+
+    </table>
+
+{% endblock %}

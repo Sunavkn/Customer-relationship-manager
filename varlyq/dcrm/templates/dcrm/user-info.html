@@ -1,0 +1,22 @@
+{% extends "dcrm/base.html" %}
+
+{% block content %}
+    <div class="container bg-light shadow-md p-5 form-layout">
+        <h2>User Information</h2>
+        <p><strong>Username:</strong> {{ user.username }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Last Login:</strong> {{ user.last_login }}</p>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <a href="{% url 'dashboard' %}" class="btn btn-outline-primary">Return &nbsp;<i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+                &nbsp;
+                <a href="{% url 'user-logout' %}" class="btn btn-outline-danger">Sign out &nbsp; <i class="fa fa-sign-out" aria-hidden="true"></i> </a>
+            </div>
+        </div>
+    </div>
+    
+        
+{% endblock %}
